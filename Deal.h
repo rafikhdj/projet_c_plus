@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Facility.h"
+#include "Lender.h"
+#include "Borrower.h"
 
 using namespace std;
 
@@ -13,9 +16,9 @@ using namespace std;
 class Deal {
 private:
     std::string contractNumber;
-    std::string agent;
-    std::vector<std::string> pool;
-    std::string borrower;
+    Lender agent;
+    std::vector<Lender> pool;
+    Borrower borrower;
     double projectAmount;
     std::string currency;
     std::string contractStartDate;
@@ -24,7 +27,7 @@ private:
     std::vector<Facility> facilities;
 
 public:
-    Deal(std::string contractNumber, std::string agent, std::vector<std::string> pool, std::string borrower,
+    Deal(std::string contractNumber, Lender agent, std::vector<Lender> pool, Borrower borrower,
          double projectAmount, std::string currency, std::string contractStartDate, std::string contractEndDate,
          std::string dealStatus, std::vector<Facility> facilities) {
         this->contractNumber = contractNumber;
@@ -44,15 +47,15 @@ public:
     }
 
     std::string getAgent() const {
-        return agent;
+        return agent.getName();
     }
 
-    std::vector<std::string> getPool() const {
+    std::vector<Lender> getPool() const {
         return pool;
     }
 
     std::string getBorrower() const {
-        return borrower;
+        return borrower.getName();
     }
 
     double getProjectAmount() const {
@@ -87,6 +90,8 @@ public:
             }
         }
 
+        this->dealStatus = 'Finish';
+        
         return true;
     }
 };
