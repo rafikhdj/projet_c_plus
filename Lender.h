@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include "Portofolio.h"
+
 using namespace std;
 
 #ifndef Lenders_h

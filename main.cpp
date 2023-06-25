@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+#include "Facility.h"
+#include "Deal.h"
 
 
 

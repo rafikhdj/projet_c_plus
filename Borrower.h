@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "Portofolio.h"
 using namespace std;
 
 #ifndef Borrower_h
@@ -10,7 +11,7 @@ using namespace std;
 class Borrower {
 private:
     std::string name;
-    Portfolio portfolio;
+    Portofolio portfolio;
 
 public:
     Borrower(std::string name) {

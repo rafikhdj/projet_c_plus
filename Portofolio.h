@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include "part.h"
+
 using namespace std;
 
 #ifndef Portofolio_h
