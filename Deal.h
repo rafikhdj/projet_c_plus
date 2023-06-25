@@ -7,20 +7,7 @@ using namespace std;
 #ifndef Deal_h
 #define Deal_h
 
-/*
 
-•	Le numéro du contrat : une lettre (S,Z,B) suivi par 4 chiffres 
-•	L’Agent : Nom de la banque
-•	Le Pool : la liste des institutions financières  
-•	Le Borrower : Nom de  l’emprunteur 
-•	Le montant du projet
-•	Devise
-•	La date de la signature du contrat 
-•	La date de la fin du contrat 
-•	Le status du deal (terminated (le montant du prêt a été utilisé et remboursé, closed (la gestion du client est en cours))
-
-
-*/
 
 // Classe Deal
 class Deal {
@@ -90,6 +77,17 @@ public:
 
     std::vector<Facility> getFacilities() const {
         return facilities;
+    }
+
+    bool totalRefund(){
+
+        for (int i = 0; i < this->facilities.size(); i++) {
+            if(this->facilities[i].getOutstandingBalance() > 0){
+                return false;
+            }
+        }
+
+        return true;
     }
 };
 

@@ -18,6 +18,8 @@ private:
     std::string currency;
     std::vector<std::string> lenders;
     double interestRate;
+    double outStandingBalance;
+
 
 public:
     Facility(std::string startDate, std::string endDate, double trancheAmount, std::string currency,
@@ -28,6 +30,7 @@ public:
         this->currency = currency;
         this->lenders = lenders;
         this->interestRate = interestRate;
+        this->outStandingBalance = trancheAmount;
     }
 
     std::string getStartDate() const {
@@ -52,6 +55,23 @@ public:
 
     double getInterestRate() const {
         return interestRate;
+    }
+
+    double getOutstandingBalance() const {
+        return this->outStandingBalance;
+    }
+
+    double refund(double amount) {
+        double interest_payed = (amount * interestRate) / this->trancheAmount;
+        double cash_interested_payed = amount * interest_payed;
+
+        this->outStandingBalance = this->outStandingBalance - amount;
+        this->interestRate = (this->interestRate * this->outStandingBalance) / this->trancheAmount;
+
+
+
+        return cash_interested_payed;
+
     }
 };
 

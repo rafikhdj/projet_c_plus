@@ -1,20 +1,24 @@
 #include <iostream>
 #include <string>
+#include "Facility.h"
 using namespace std;
 
 #ifndef Part_h
 #define Part_h
 
-// Classe Part
+// Class Part
 class Part {
 private:
     double amount;
-    double interest;
+    double interest_payed;
+    Facility facility;
 
 public:
-    Part(double amount, double interest) {
+    Part(double amount, Facility facility){
         this->amount = amount;
-        this->interest = interest;
+        this->facility = facility;
+
+        this->interest_payed = this->facility.refund(this->amount);
     }
 
     double getAmount() const {
@@ -22,7 +26,7 @@ public:
     }
 
     double getInterest() const {
-        return interest;
+        return interest_payed;
     }
 };
 

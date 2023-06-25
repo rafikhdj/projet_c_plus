@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include "part.h"
+#include "Part.h"
+#include "Facility.h"
 
 using namespace std;
 
@@ -11,10 +12,12 @@ using namespace std;
 class Portfolio {
 private:
     std::vector<Part> parts;
+    
 
 public:
-    void addPart(double amount, double interest) {
-        Part part(amount, interest);
+
+
+    void addPart(Part part) {
         parts.push_back(part);
     }
 

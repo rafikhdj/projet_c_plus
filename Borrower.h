@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
-#include "Portofolio.h"
+#include "Part.h"
+#include "Portfolio.h"
+
 using namespace std;
 
 #ifndef Borrower_h
@@ -16,6 +18,7 @@ private:
 public:
     Borrower(std::string name) {
         this->name = name;
+        this->portofolio = new Portofolio();
     }
 
     std::string getName() const {
@@ -25,6 +28,14 @@ public:
     Portfolio getPortfolio() const {
         return portfolio;
     }
+
+    void addPart(double amount, Facility facility){
+  
+        this->portofolio.addPart(new Part(amount, facility));
+    }
+
+
+
 };
 
 

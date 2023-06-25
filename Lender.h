@@ -11,7 +11,7 @@ using namespace std;
 class Lender {
 private:
     std::string name;
-    Portfolio portfolio;
+
 
 public:
     Lender(std::string name) {
@@ -22,9 +22,7 @@ public:
         return name;
     }
 
-    Portfolio getPortfolio() const {
-        return portfolio;
-    }
+
 };
 
 #endif /* Lenders_h */
